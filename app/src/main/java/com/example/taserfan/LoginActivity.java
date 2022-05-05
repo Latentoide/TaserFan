@@ -57,10 +57,9 @@ public class LoginActivity extends BaseActivity implements CallInterface {
         if(res instanceof Result.Success){
             LoggedInUserRepository.getInstance().login(((Result.Success<Empleado>) res).getData());
             Toast.makeText(this, LoggedInUserRepository.getLoggedUser().getNombre(), Toast.LENGTH_SHORT).show();
-        }else if(res instanceof Result.Error){
-            Toast.makeText(this, "Esto es un error", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show();
+            Result.Error resultado = (Result.Error) res;
+            Toast.makeText(this, resultado.getError(), Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -1,19 +1,19 @@
 package com.example.taserfan;
 
-import java.util.Date;
+
 
 public class Empleado {
     private String nombre, apellidos, domiciolio, codigoPostal;
     private String dni;
-    private Date fecha;
 
-    public Empleado(String nombre, String apellidos, String domiciolio, String codigoPostal, String dni, Date fecha) {
+
+    public Empleado(String nombre, String apellidos, String domiciolio, String codigoPostal, String dni) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.domiciolio = domiciolio;
         this.codigoPostal = codigoPostal;
         this.dni = dni;
-        this.fecha = fecha;
+
     }
 
     public String getNombre() {
@@ -56,13 +56,6 @@ public class Empleado {
         this.dni = dni;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
 
     @Override
     public String toString() {
@@ -71,3 +64,4 @@ public class Empleado {
                 '}';
     }
 }
+
