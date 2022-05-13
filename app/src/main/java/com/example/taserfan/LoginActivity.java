@@ -42,9 +42,7 @@ public class LoginActivity extends BaseActivity implements CallInterface {
                 executeCall(LoginActivity.this);
             }
         });
-
     }
-
 
     @Override
     public void doInBackground() {
@@ -56,7 +54,7 @@ public class LoginActivity extends BaseActivity implements CallInterface {
     public void doInUI() {
         if(res instanceof Result.Success){
             LoggedInUserRepository.getInstance().login(((Result.Success<Empleado>) res).getData());
-            Toast.makeText(this, LoggedInUserRepository.getLoggedUser().getNombre(), Toast.LENGTH_SHORT).show();
+
         }else{
             Result.Error resultado = (Result.Error) res;
             Toast.makeText(this, resultado.getError(), Toast.LENGTH_SHORT).show();
