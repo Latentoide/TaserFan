@@ -1,7 +1,5 @@
 package com.example.taserfan;
 
-import javax.security.auth.login.LoginException;
-
 public class LoggedInUserRepository {
     private static   LoggedInUserRepository loggedInUserRepository;
     private static Empleado empleado;

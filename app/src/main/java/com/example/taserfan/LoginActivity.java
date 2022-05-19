@@ -1,11 +1,7 @@
 package com.example.taserfan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +12,6 @@ import com.example.taserfan.API.Connector;
 import com.example.taserfan.API.Result;
 import com.example.taserfan.base.BaseActivity;
 import com.example.taserfan.base.CallInterface;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class LoginActivity extends BaseActivity implements CallInterface {
 
@@ -54,7 +47,8 @@ public class LoginActivity extends BaseActivity implements CallInterface {
     public void doInUI() {
         if(res instanceof Result.Success){
             LoggedInUserRepository.getInstance().login(((Result.Success<Empleado>) res).getData());
-
+            Intent intent = new Intent(this, AcitivityOfVehicles.class);
+            startActivity(intent);
         }else{
             Result.Error resultado = (Result.Error) res;
             Toast.makeText(this, resultado.getError(), Toast.LENGTH_SHORT).show();

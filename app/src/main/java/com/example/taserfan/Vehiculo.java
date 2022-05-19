@@ -1,105 +1,133 @@
 package com.example.taserfan;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Vehiculo {
-    private String matricula;
-    private float precioHora;
-    private String marca;
-    private String descripcion;
-    private String color;
-    private float bateria;
-    private String estado;
-    private float idCarnet;
-    private Date date;
+public class Vehiculo implements Serializable {
+        private String matricula;
+        private float precioHora;
+        private String marca;
+        private String descripcion;
+        private String color;
+        private float bateria;
+        private String estado;
+        private String idCarnet;
+        private Date date;
+        private Tablas tipo;
 
-    public Vehiculo(String matricula, float precioHora, String marca, String descripcion, String color, float bateria, String estado, float idCarnet, Date date) {
-        this.matricula = matricula;
-        this.precioHora = precioHora;
-        this.marca = marca;
-        this.descripcion = descripcion;
-        this.color = color;
-        this.bateria = bateria;
-        this.estado = estado;
-        this.idCarnet = idCarnet;
-        this.date = date;
-    }
+        public Vehiculo(String matricula, float precioHora, String marca, String descripcion, String color, float bateria, String estado, String idCarnet, Date date, Tablas tipo) {
+            this.matricula = matricula;
+            this.precioHora = precioHora;
+            this.marca = marca;
+            this.descripcion = descripcion;
+            this.color = color;
+            this.bateria = bateria;
+            this.estado = estado;
+            this.idCarnet = idCarnet;
+            this.date = date;
+            this.tipo = tipo;
+        }
 
-    public String getMatricula() {
-        return matricula;
-    }
+        public Vehiculo(String matricula,float precioHora,String marca,String color,String estado,String idCarnet, Tablas tipo){
+            this.matricula = matricula;
+            this.precioHora = precioHora;
+            this.marca = marca;
+            this.color = color;
+            this.idCarnet = idCarnet;
+            this.tipo = tipo;
+        }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
+        public String getMatricula() {
+            return matricula;
+        }
 
-    public float getPrecioHora() {
-        return precioHora;
-    }
+        public void setMatricula(String matricula) {
+            this.matricula = matricula;
+        }
 
-    public void setPrecioHora(float precioHora) {
-        this.precioHora = precioHora;
-    }
+        public float getPrecioHora() {
+            return precioHora;
+        }
 
-    public String getMarca() {
-        return marca;
-    }
+        public void setPrecioHora(float precioHora) {
+            this.precioHora = precioHora;
+        }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
+        public String getMarca() {
+            return marca;
+        }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+        public void setMarca(String marca) {
+            this.marca = marca;
+        }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+        public String getDescripcion() {
+            return descripcion;
+        }
 
-    public String getColor() {
-        return color;
-    }
+        public void setDescripcion(String descripcion) {
+            this.descripcion = descripcion;
+        }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+        public String getColor() {
+            return color;
+        }
 
-    public float getBateria() {
-        return bateria;
-    }
+        public void setColor(String color) {
+            this.color = color;
+        }
 
-    public void setBateria(float bateria) {
-        this.bateria = bateria;
-    }
+        public float getBateria() {
+            return bateria;
+        }
 
-    public String getEstado() {
-        return estado;
-    }
+        public void setBateria(float bateria) {
+            this.bateria = bateria;
+        }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+        public String getEstado() {
+            return estado;
+        }
 
-    public float getIdCarnet() {
-        return idCarnet;
-    }
+        public void setEstado(String estado) {
+            this.estado = estado;
+        }
 
-    public void setIdCarnet(float idCarnet) {
-        this.idCarnet = idCarnet;
-    }
+        public String getIdCarnet() {
+            return idCarnet;
+        }
 
-    @Override
-    public String toString() {
-        return "Vehiculo{" +
-                "matricula='" + matricula + '\'' +
-                ", precioHora=" + precioHora +
-                ", marca='" + marca + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", color='" + color + '\'' +
-                ", bateria=" + bateria +
-                ", estado='" + estado + '\'' +
-                ", idCarnet=" + idCarnet +
-                '}';
+        public void setIdCarnet(String idCarnet) {
+            this.idCarnet = idCarnet;
+        }
+
+        public Date getDate() {
+            return date;
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public Tablas getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(Tablas tipo) {
+            this.tipo = tipo;
+        }
+
+        @Override
+        public String toString() {
+            return "Vehiculo{" +
+                    "matricula='" + matricula + '\'' +
+                    ", precioHora=" + precioHora +
+                    ", marca='" + marca + '\'' +
+                    ", descripcion='" + descripcion + '\'' +
+                    ", color='" + color + '\'' +
+                    ", bateria=" + bateria +
+                    ", estado='" + estado + '\'' +
+                    ", idCarnet=" + idCarnet +
+                    '}';
+        }
     }
-}

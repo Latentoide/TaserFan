@@ -1,8 +1,6 @@
 package com.example.taserfan.API;
 
 
-import com.example.taserfan.Authentification;
-
 import java.io.IOException;
 import java.util.List;
 
