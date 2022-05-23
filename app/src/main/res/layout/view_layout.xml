@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/fotoVel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -27,62 +27,39 @@
         app:layout_constraintBottom_toBottomOf="@+id/fotoVel"
         app:layout_constraintStart_toEndOf="@+id/fotoVel"
         app:layout_constraintTop_toTopOf="@+id/fotoVel"
-        app:layout_constraintVertical_bias="0.157" />
-
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/matricula"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/matricula"
-        app:layout_constraintTop_toBottomOf="@+id/matricula" />
-
-    <TextView
-        android:id="@+id/color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/nombre"
-        app:layout_constraintStart_toEndOf="@+id/nombre"
-        app:layout_constraintTop_toTopOf="@+id/nombre" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <TextView
         android:id="@+id/estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/matricula"
-        app:layout_constraintStart_toEndOf="@+id/matricula"
-        app:layout_constraintTop_toTopOf="@+id/matricula"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/precio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="20dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/color"
-        app:layout_constraintTop_toTopOf="@+id/color"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintBottom_toBottomOf="@+id/estado"
+        app:layout_constraintEnd_toStartOf="@+id/estado"
+        app:layout_constraintTop_toTopOf="@+id/estado"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/marca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="35dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/estado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
-        app:layout_constraintStart_toEndOf="@+id/estado"
-        app:layout_constraintTop_toTopOf="@+id/estado"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fotoVel"
+        app:layout_constraintTop_toBottomOf="@+id/matricula"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

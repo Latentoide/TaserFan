@@ -1,5 +1,7 @@
 package com.example.taserfan;
 
-public enum Tablas {
+import java.io.Serializable;
+
+public enum Tablas implements Serializable {
     COCHE, MOTO, BICICLETA, PATINETE
 }

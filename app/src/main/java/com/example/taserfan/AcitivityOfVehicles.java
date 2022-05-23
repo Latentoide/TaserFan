@@ -44,7 +44,8 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
     public void onClick(View view){
         Intent myIntent = new Intent(AcitivityOfVehicles.this,VehicleDetail.class);
         int i = recyclerView.getChildAdapterPosition(view);
-        myIntent.putExtra("infoPosition", vehiculoList.get(i));
+        myIntent.putExtra("matricula", vehiculoList.get(i).getMatricula());
+        myIntent.putExtra("tabla", vehiculoList.get(i).getTipo());
         startActivity(myIntent);
     }
 }

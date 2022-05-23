@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -16,9 +17,11 @@ public class MyReciclerViewAdapter extends RecyclerView.Adapter<MyReciclerViewAd
     private LayoutInflater myInflator;
     private View.OnClickListener myClicker;
     private List<Vehiculo> myVehicleList;
+    private Context context;
 
     public  MyReciclerViewAdapter(Context myContext, List<Vehiculo> myVehicleList){
         this.myVehicleList = myVehicleList;
+        context = myContext;
         myInflator = (LayoutInflater) myContext.getSystemService(myContext.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -35,24 +38,45 @@ public class MyReciclerViewAdapter extends RecyclerView.Adapter<MyReciclerViewAd
         Vehiculo v = myVehicleList.get(position);
         switch (v.getTipo()){
             case MOTO:
-                //viewHolder.imageView.setImageResource(R.drawable.);
+                viewHolder.imageView.setImageResource(R.drawable.ic_moto);
                 break;
             case COCHE:
-                //viewHolder.imageView.setImageResource(R.drawable.);
+                viewHolder.imageView.setImageResource(R.drawable.ic_car);
                 break;
             case PATINETE:
-                //viewHolder.imageView.setImageResource(R.drawable.);
+                viewHolder.imageView.setImageResource(R.drawable.ic_patinete);
                 break;
             case BICICLETA:
-                //viewHolder.imageView.setImageResource(R.drawable.);
+                viewHolder.imageView.setImageResource(R.drawable.ic_bicicleta);
                 break;
         }
+
+        switch (v.getColor()){
+            case "verde":
+                viewHolder.imageView.setColorFilter(ContextCompat.getColor(context,R.color.verde));
+                break;
+            case "amarillo":
+                viewHolder.imageView.setColorFilter(ContextCompat.getColor(context,R.color.amarillo));
+                break;
+            case "rojo":
+                viewHolder.imageView.setColorFilter(ContextCompat.getColor(context,R.color.rojo));
+                break;
+            case "blanco":
+                viewHolder.imageView.setColorFilter(ContextCompat.getColor(context,R.color.gris));
+                break;
+            case "negro":
+                viewHolder.imageView.setColorFilter(ContextCompat.getColor(context,R.color.grisOscuro));
+                break;
+            case "azul":
+                viewHolder.imageView.setColorFilter(ContextCompat.getColor(context,R.color.azul));
+                break;
+        }
+
         viewHolder.estado.setText(v.getEstado());
-        viewHolder.marca.setText(v.getMarca());
-        viewHolder.precio.setText(String.valueOf(v.getPrecioHora()));
+        viewHolder.precio.setText(v.getPrecioHora() + "€");
         viewHolder.matricula.setText(v.getMatricula());
-        viewHolder.nombre.setText(v.getDescripcion());
-        viewHolder.color.setText(v.getColor());
+        viewHolder.marca.setText(v.getMarca());
+        viewHolder.setBackground(position);
 
     }
 
@@ -67,23 +91,33 @@ public class MyReciclerViewAdapter extends RecyclerView.Adapter<MyReciclerViewAd
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
         ImageView imageView;
-        TextView color;
         TextView matricula;
-        TextView nombre;
         TextView precio;
         TextView marca;
         TextView estado;
+        View view;
+
+
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             imageView = itemView.findViewById(R.id.fotoVel);
-            color = itemView.findViewById(R.id.color);
             matricula = itemView.findViewById(R.id.matricula);
-            nombre = itemView.findViewById(R.id.nombre);
             precio = itemView.findViewById(R.id.precio);
             marca = itemView.findViewById(R.id.marca);
             estado = itemView.findViewById(R.id.estado);
+            this.view = itemView;
         }
+
+        public void setBackground(int position){
+            if(position%2 == 0){
+                view.setBackgroundColor(context.getResources().getColor(R.color.white));
+            }
+            else{
+                view.setBackgroundColor(context.getResources().getColor(R.color.moraditoOsc));
+            }
+        }
+
 
     }
 }
