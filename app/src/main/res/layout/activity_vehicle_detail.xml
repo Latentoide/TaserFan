@@ -6,4 +6,322 @@
     android:layout_height="match_parent"
     tools:context=".VehicleDetail">
 
+    <ImageView
+        android:id="@+id/fotoDet"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/descDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/fotoDet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintStart_toEndOf="@+id/fotoDet"
+        app:layout_constraintTop_toTopOf="@+id/fotoDet"
+        app:layout_constraintVertical_bias="0.469" />
+
+    <TextView
+        android:id="@+id/matriDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/fotoDet"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/fotoDet"
+        app:layout_constraintTop_toBottomOf="@+id/fotoDet"
+        app:layout_constraintVertical_bias="0.095" />
+
+    <TextView
+        android:id="@+id/marcaDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/descDet"
+        app:layout_constraintEnd_toEndOf="@+id/descDet"
+        app:layout_constraintStart_toStartOf="@+id/descDet"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/precioDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/matriDet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toEndOf="@+id/matriDet"
+        app:layout_constraintTop_toTopOf="@+id/matriDet"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/batDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/matriDet"
+        app:layout_constraintStart_toStartOf="@+id/matriDet"
+        app:layout_constraintTop_toBottomOf="@+id/matriDet" />
+
+    <TextView
+        android:id="@+id/estaDet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/batDet"
+        app:layout_constraintStart_toEndOf="@+id/batDet"
+        app:layout_constraintTop_toTopOf="@+id/batDet"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/numPu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batDet"
+        app:layout_constraintTop_toBottomOf="@+id/batDet" />
+
+    <TextView
+        android:id="@+id/numPla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/estaDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/estaDet"
+        app:layout_constraintTop_toBottomOf="@+id/estaDet" />
+
+    <TextView
+        android:id="@+id/velMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/estaDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/estaDet"
+        app:layout_constraintTop_toBottomOf="@+id/estaDet" />
+
+    <TextView
+        android:id="@+id/cilin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batDet"
+        app:layout_constraintTop_toBottomOf="@+id/batDet" />
+
+    <TextView
+        android:id="@+id/numRuedas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batDet"
+        app:layout_constraintTop_toBottomOf="@+id/batDet" />
+
+    <TextView
+        android:id="@+id/tamanyo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/estaDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/estaDet"
+        app:layout_constraintTop_toBottomOf="@+id/estaDet" />
+
+    <TextView
+        android:id="@+id/tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batDet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batDet"
+        app:layout_constraintTop_toBottomOf="@+id/batDet" />
+
+    <EditText
+        android:id="@+id/descChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fotoDet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fotoDet"
+        app:layout_constraintTop_toTopOf="@+id/fotoDet" />
+
+    <EditText
+        android:id="@+id/matriChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/fotoDet"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/fotoDet"
+        app:layout_constraintTop_toBottomOf="@+id/fotoDet"
+        app:layout_constraintVertical_bias="0.095" />
+
+    <EditText
+        android:id="@+id/marcaChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/descChange"
+        app:layout_constraintEnd_toEndOf="@+id/descChange"
+        app:layout_constraintStart_toStartOf="@+id/descChange"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/precioChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/matriChange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toEndOf="@+id/matriChange"
+        app:layout_constraintTop_toTopOf="@+id/matriChange"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/batChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/matriChange"
+        app:layout_constraintStart_toStartOf="@+id/matriChange"
+        app:layout_constraintTop_toBottomOf="@+id/matriChange" />
+
+    <EditText
+        android:id="@+id/estaChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/batChange"
+        app:layout_constraintStart_toEndOf="@+id/batChange"
+        app:layout_constraintTop_toTopOf="@+id/batChange"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/numPuChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batChange"
+        app:layout_constraintTop_toBottomOf="@+id/batChange" />
+
+    <EditText
+        android:id="@+id/numPlaChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/estaChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/estaChange"
+        app:layout_constraintTop_toBottomOf="@+id/estaChange" />
+
+    <EditText
+        android:id="@+id/velChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/estaChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/estaChange"
+        app:layout_constraintTop_toBottomOf="@+id/estaChange" />
+
+    <EditText
+        android:id="@+id/cilinChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batChange"
+        app:layout_constraintTop_toBottomOf="@+id/batChange" />
+
+    <EditText
+        android:id="@+id/numRuedasChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batChange"
+        app:layout_constraintTop_toBottomOf="@+id/batChange" />
+
+    <EditText
+        android:id="@+id/tamanyoChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/estaChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/estaChange"
+        app:layout_constraintTop_toBottomOf="@+id/estaChange" />
+
+    <EditText
+        android:id="@+id/tipoChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/batChange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/batChange"
+        app:layout_constraintTop_toBottomOf="@+id/batChange" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
