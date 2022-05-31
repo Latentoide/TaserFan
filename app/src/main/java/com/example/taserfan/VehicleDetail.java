@@ -1,6 +1,7 @@
 package com.example.taserfan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,11 @@ public class VehicleDetail extends BaseActivity implements CallInterface {
     Result<Moto> m;
     Result<Patin> p;
     Result<Bicicleta> b;
+
+    Moto miMoto = null;
+    Coche miCoche = null;
+    Patin miPatin = null;
+    Bicicleta miBici = null;
 
     Coche coche;
     Moto moto;
@@ -467,27 +473,41 @@ public class VehicleDetail extends BaseActivity implements CallInterface {
 
                 switch (tabla){
                     case MOTO:
-                        Moto miMoto = new Moto(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, moto.getIdCarnet(), moto.getDate(), Tablas.MOTO, Float.parseFloat(velmaxEdit.getText().toString()), Float.parseFloat(cilinEdit.getText().toString()));
+                        miMoto = new Moto(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, moto.getIdCarnet(), moto.getDate(), Tablas.MOTO, Float.parseFloat(velmaxEdit.getText().toString()), Float.parseFloat(cilinEdit.getText().toString()));
                         break;
                     case COCHE:
-                        Coche miCoche = new Coche(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, coche.getIdCarnet(), coche.getDate(), Tablas.COCHE, Float.parseFloat(numPlazaEdit.getText().toString()), Float.parseFloat(numPlazaEdit.getText().toString()));
+                        miCoche = new Coche(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, coche.getIdCarnet(), coche.getDate(), Tablas.COCHE, Float.parseFloat(numPlazaEdit.getText().toString()), Float.parseFloat(numPlazaEdit.getText().toString()));
                         break;
                     case PATINETE:
-                        Patin miPatin = new Patin(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, patin.getIdCarnet(), patin.getDate(), Tablas.PATINETE, Float.parseFloat(numRuedasEdit.getText().toString()), Float.parseFloat(tamanyoEdit.getText().toString()));
+                        miPatin = new Patin(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, patin.getIdCarnet(), patin.getDate(), Tablas.PATINETE, Float.parseFloat(numRuedasEdit.getText().toString()), Float.parseFloat(tamanyoEdit.getText().toString()));
                         break;
                     case BICICLETA:
-                        Bicicleta miBici = new Bicicleta(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, bicicleta.getIdCarnet(), bicicleta.getDate(), Tablas.BICICLETA, tipoEdit.getText().toString());
+                        miBici = new Bicicleta(descEdit.getText().toString(), Float.parseFloat(precioHoEdit.getText().toString()), marcEdit.getText().toString(), descEdit.getText().toString(), elColor, Float.parseFloat(batEdit.getText().toString()),  elEstado, bicicleta.getIdCarnet(), bicicleta.getDate(), Tablas.BICICLETA, tipoEdit.getText().toString());
                         break;
                 }
                 executeCall(new CallInterface() {
                     @Override
                     public void doInBackground() {
-                        Connector.getConector().put();
+                        switch (tabla){
+                            case MOTO:
+                                Connector.getConector().put(Moto.class, miMoto, "/moto");
+                                break;
+                            case COCHE:
+                                Connector.getConector().put(Coche.class, miCoche, "/coche");
+                                break;
+                            case PATINETE:
+                                Connector.getConector().put(Patin.class, miPatin, "/patinete");
+                                break;
+                            case BICICLETA:
+                                Connector.getConector().put(Bicicleta.class, miBici, "/bicicleta");
+                                break;
+                        }
                     }
 
                     @Override
                     public void doInUI() {
-
+                        Intent intent = new Intent(context, AcitivityOfVehicles.class);
+                        startActivity(intent);
                     }
                 });
             }

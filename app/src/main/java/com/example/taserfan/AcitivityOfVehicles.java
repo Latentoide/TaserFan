@@ -1,8 +1,13 @@
 package com.example.taserfan;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -20,14 +25,21 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AcitivityOfVehicles extends BaseActivity implements CallInterface, View.OnClickListener {
     private RecyclerView recyclerView;
     private List<Vehiculo> vehiculoList;
+    EditText busqueda;
+    Context context;
+    Button insertar;
+    View.OnClickListener click = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acitivity_of_vehicles);
+        context = this;
+        insertar = findViewById(R.id.insertar);
         executeCall(this);
     }
 
@@ -90,6 +102,34 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
                     }
                 });
         mIth.attachToRecyclerView(recyclerView);
+
+        busqueda = findViewById(R.id.busqueda);
+        busqueda.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.length() == 0){
+                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,vehiculoList);
+                    adaptador.setOnClickListener(click);
+                    recyclerView.setAdapter(adaptador);
+                }else{
+                    List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula() == charSequence || vehiculo.getTipo().equals(charSequence) || vehiculo.getMarca().equals(charSequence)).collect(Collectors.toList());
+                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
+                    adaptador.setOnClickListener(click);
+                    recyclerView.setAdapter(adaptador);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     @Override

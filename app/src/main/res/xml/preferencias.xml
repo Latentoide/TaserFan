@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="IP">
+
+        <EditTextPreference
+            android:defaultValue="10.19.11.5"
+            android:key="ipKey"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="IP" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Puerto">
+
+        <EditTextPreference
+            android:defaultValue="4567"
+            android:key="puertoKey"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Puerto" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="Cambiar tema">
+        <androidx.preference.ListPreference
+            android:dialogTitle="@string/settings_theme_dialog_title"
+            android:entries="@array/settings_theme_entries"
+            android:entryValues="@array/settings_theme_values"
+            android:key="@string/settings_theme_key"
+            android:title="@string/settings_theme_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
