@@ -55,6 +55,7 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
         MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(this,vehiculoList);
         adaptador.setOnClickListener(this);
         recyclerView.setAdapter(adaptador);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 

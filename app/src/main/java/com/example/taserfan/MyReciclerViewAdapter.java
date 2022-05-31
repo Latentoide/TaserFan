@@ -111,7 +111,7 @@ public class MyReciclerViewAdapter extends RecyclerView.Adapter<MyReciclerViewAd
 
         public void setBackground(int position){
             if(position%2 == 0){
-                view.setBackgroundColor(context.getResources().getColor(R.color.white));
+                view.setBackgroundColor(context.getResources().getColor(R.color.blacoLocura));
             }
             else{
                 view.setBackgroundColor(context.getResources().getColor(R.color.moraditoOsc));
