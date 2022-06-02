@@ -45,7 +45,6 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
 
     @Override
     public void doInBackground() {
-        //hacer llamada y guardarla
         vehiculoList = new LinkedList<>(Connector.getConector().getAsList(Vehiculo.class, "/all"));
     }
 
@@ -117,7 +116,7 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
                     adaptador.setOnClickListener(click);
                     recyclerView.setAdapter(adaptador);
                 }else{
-                    List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula() == charSequence || vehiculo.getTipo().equals(charSequence) || vehiculo.getMarca().equals(charSequence)).collect(Collectors.toList());
+                    List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula() == charSequence.toString() || vehiculo.getTipo().equals(charSequence) || vehiculo.getMarca().equals(charSequence)).collect(Collectors.toList());
                     MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
                     adaptador.setOnClickListener(click);
                     recyclerView.setAdapter(adaptador);
