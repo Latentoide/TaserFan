@@ -343,7 +343,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/elInsert"
         app:layout_constraintEnd_toStartOf="@+id/elInsert"
         app:layout_constraintTop_toTopOf="@+id/elInsert"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="gone" />
 
     <Button
         android:id="@+id/confirmar"
@@ -353,6 +354,7 @@
         android:layout_marginBottom="28dp"
         android:text="Confirmar"
         app:layout_constraintBottom_toTopOf="@+id/elInsert"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,6 +33,7 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
     EditText busqueda;
     Context context;
     Button insertar;
+
     View.OnClickListener click = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,13 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
         setContentView(R.layout.activity_acitivity_of_vehicles);
         context = this;
         insertar = findViewById(R.id.insertar);
+        insertar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(AcitivityOfVehicles.this,InsertActivity.class);
+                startActivity(myIntent);
+            }
+        });
         executeCall(this);
     }
 
@@ -112,22 +120,21 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length() == 0){
-                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,vehiculoList);
-                    adaptador.setOnClickListener(click);
-                    recyclerView.setAdapter(adaptador);
-                }else{
-                    List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula() == charSequence.toString() || vehiculo.getTipo().equals(charSequence) || vehiculo.getMarca().equals(charSequence)).collect(Collectors.toList());
-                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
-                    adaptador.setOnClickListener(click);
-                    recyclerView.setAdapter(adaptador);
-                }
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                if(editable.length() == 0){
+                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,vehiculoList);
+                    adaptador.setOnClickListener(click);
+                    recyclerView.setAdapter(adaptador);
+                }else{
+                    List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula().contains(editable.toString()) || vehiculo.getTipo().equals(editable.toString()) || vehiculo.getMarca().equals(editable.toString())).collect(Collectors.toList());
+                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
+                    adaptador.setOnClickListener(click);
+                    recyclerView.setAdapter(adaptador);
+                }
             }
         });
     }

@@ -65,7 +65,6 @@ public class LoginActivity extends BaseActivity implements CallInterface {
 
     @Override
     public void doInBackground() {
-        Connector.getConector().post(Coche.class, new Coche("matricula", 6, "marca", "descripcion", Color.AZUL, 3, Estado.ALQUILADO, "idCarnet", new Date(14082001), Tablas.COCHE, 4, 3), "/coche");
         Authentification authentication = new Authentification(usuario.getText().toString(), password.getText().toString());
         res = Connector.getConector().post(Empleado.class, authentication, API.Routes.AUTHENTICATE);
     }
