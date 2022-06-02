@@ -57,21 +57,16 @@ public class Connector {
         return null;
     }
 
-    public <T> Result<T> put(Class<T> clazz, T data, String path) {
-        try {
+    public <T> Boolean put(Class<T> clazz, T data, String path) {
             String url = API.Routes.URL + path;
             String jsonObject = conversor.toJson(data);
             RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonObject);
             Response<ResponseBody> jsonResponse = callMethodsObject.putResult(url, body);
 
             if (jsonResponse != null && jsonResponse.code() == 200)
-                return conversor.fromJSonToSuccess(jsonResponse.body().string(), clazz);
+                return true;
             else if (jsonResponse != null)
-                return conversor.getError(jsonResponse.errorBody().string());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                return false;
         return null;
     }
 
