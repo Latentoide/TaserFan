@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -30,6 +33,10 @@ import java.util.stream.Collectors;
 public class AcitivityOfVehicles extends BaseActivity implements CallInterface, View.OnClickListener {
     private RecyclerView recyclerView;
     private List<Vehiculo> vehiculoList;
+    Spinner sp;
+    ArrayAdapter<String> ar;
+    String[] aStr = {"TODOS", "COCHE", "MOTO", "BICICLETA", "PATINETE"};
+
     EditText busqueda;
     Context context;
     Button insertar;
@@ -39,6 +46,23 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acitivity_of_vehicles);
+        sp = findViewById(R.id.spInfo);
+        ar = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, aStr );
+        sp.setAdapter(ar);
+        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                List<Vehiculo> ls = vehiculoList.stream().filter((vehiculo) -> vehiculo.getTipo().equals(sp.getSelectedItem().toString())).collect(Collectors.toList());
+                MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,ls);
+                adaptador.setOnClickListener(click);
+                recyclerView.setAdapter(adaptador);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         context = this;
         insertar = findViewById(R.id.insertar);
         insertar.setOnClickListener(new View.OnClickListener() {
@@ -130,10 +154,17 @@ public class AcitivityOfVehicles extends BaseActivity implements CallInterface, 
                     adaptador.setOnClickListener(click);
                     recyclerView.setAdapter(adaptador);
                 }else{
-                    List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula().contains(editable.toString()) || vehiculo.getTipo().equals(editable.toString()) || vehiculo.getMarca().equals(editable.toString())).collect(Collectors.toList());
-                    MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
-                    adaptador.setOnClickListener(click);
-                    recyclerView.setAdapter(adaptador);
+                    if(!sp.getSelectedItem().toString().equals("TODOS")){
+                        List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula().contains(editable.toString()) && vehiculo.getTipo().equals(sp.getSelectedItem().toString())).collect(Collectors.toList());
+                        MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
+                        adaptador.setOnClickListener(click);
+                        recyclerView.setAdapter(adaptador);
+                    }else{
+                        List<Vehiculo> l = vehiculoList.stream().filter((vehiculo) -> vehiculo.getMatricula().contains(editable.toString())).collect(Collectors.toList());
+                        MyReciclerViewAdapter adaptador = new MyReciclerViewAdapter(context,l);
+                        adaptador.setOnClickListener(click);
+                        recyclerView.setAdapter(adaptador);
+                    }
                 }
             }
         });
